@@ -1,4 +1,3 @@
-# Template
+# Weather App
 
-This is my template repository for future projects with
-JavaScript.
+This is my Weather App created using the Visual Crossing API.
