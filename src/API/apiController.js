@@ -6,11 +6,11 @@ async function getWeatherData(location) {
       { mode: "cors" }
     );
     if (!response.ok) {
-      throw new Error(`City ${location} not found!`);
+      alert(new Error(`City ${location} not found!`));
     }
     const data = await response.json();
     const processedData = processWeatherData(data);
-    return console.log(processedData);
+    return processedData;
   } catch (err) {
     return console.log(err);
   }

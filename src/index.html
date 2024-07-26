@@ -6,11 +6,33 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form action="#" id="form" novalidate>
-      <input type="search" name="search" id="search" />
-      <button type="submit" class="searchButton">
-        <img src="<%=require('/assets/magnify.svg')%>" alt="search" />
-      </button>
-    </form>
+    <div class="container">
+      <form action="#" id="form" novalidate>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Location..."
+        />
+        <button type="submit" class="searchButton">
+          <img src="<%=require('/assets/magnify.svg')%>" alt="search" />
+        </button>
+      </form>
+    </div>
+    <div class="card">
+      <div class="left">
+        <p id="city"></p>
+        <p id="sunrise"></p>
+        <p id="sunset"></p>
+      </div>
+      <p>Today</p>
+      <div class="right">
+        <p id="description"></p>
+        <p id="icon"></p>
+        <p id="temperature"></p>
+        <p id="feelsLike"></p>
+        <p id="chanceOfRain"></p>
+      </div>
+    </div>
   </body>
 </html>

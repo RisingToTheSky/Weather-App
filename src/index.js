@@ -1,4 +1,4 @@
 import "./style.css";
-import { displayInfo } from "./UI/UI";
+import { getInput } from "./DOM/DOM";
 
-displayInfo();
+getInput();
