@@ -5,6 +5,9 @@ async function getWeatherData(location) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=3XMJC6XUF2892JDDJXKMYFC7Q`,
       { mode: "cors" }
     );
+    if (!response.ok) {
+      throw new Error(`City ${location} not found!`);
+    }
     const data = await response.json();
     const processedData = processWeatherData(data);
     return console.log(processedData);
