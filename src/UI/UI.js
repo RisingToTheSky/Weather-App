@@ -39,7 +39,7 @@ function convertTemperature(number) {
   if (celsiusActive) {
     return (((number - 32) * 5) / 9).toFixed(1) + "°C";
   } else if (fahrenheitActive) {
-    return (number * (9 / 5) + 32).toFixed(1) + "°F";
+    return number + "°F";
   }
 }
 
