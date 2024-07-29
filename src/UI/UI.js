@@ -14,7 +14,7 @@ async function displayInfo(location) {
 
   city.textContent = data.address;
   description.textContent = data.description;
-  iconImage.src = icons(`./${data.weatherNow}.svg`);
+  iconImage.src = icons(`${data.weatherNow}.svg`);
   iconImage.alt = `${data.weatherNow}`;
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
