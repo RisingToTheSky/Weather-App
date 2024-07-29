@@ -2,6 +2,7 @@ import { getWeatherData } from "../API/apiController";
 
 async function displayInfo(location) {
   const data = await getWeatherData(location);
+  const icons = require.context("/assets/weatherIcons", false, /.svg$/);
   const buttons = document.querySelectorAll("button");
   const city = document.getElementById("city");
   const description = document.getElementById("description");
@@ -13,7 +14,7 @@ async function displayInfo(location) {
 
   city.textContent = data.address;
   description.textContent = data.description;
-  iconImage.src = `/assets/weatherIcons/${data.weatherNow}.svg`;
+  iconImage.src = icons(`./${data.weatherNow}.svg`);
   iconImage.alt = `${data.weatherNow}`;
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
