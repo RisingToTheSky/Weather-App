@@ -14,7 +14,8 @@ body {
 .container {
   display: flex;
   padding: 25px;
-  justify-content: center;
+  gap: 25px;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -40,6 +41,31 @@ img {
   border: none;
 }
 
-.searchButton:hover {
+.searchButton:hover, .scale:hover {
   cursor: pointer;
+}
+
+.scales {
+  display: flex;
+  gap: 5px;
+}
+
+.scale {
+  width: 50px;
+  height: 53px;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.active {
+  background-color: whitesmoke;
+}
+
+.card {
+    display: flex;
+    padding: 25px;
+    gap: 50px;
+    font-size: 2rem;
 }

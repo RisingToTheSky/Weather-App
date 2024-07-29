@@ -2,24 +2,54 @@ import { getWeatherData } from "../API/apiController";
 
 async function displayInfo(location) {
   const data = await getWeatherData(location);
-  console.log(data);
+  const buttons = document.querySelectorAll("button");
   const city = document.getElementById("city");
   const sunrise = document.getElementById("sunrise");
   const sunset = document.getElementById("sunset");
+  const today = document.getElementById("today");
   const description = document.getElementById("description");
-  const icon = document.getElementById("icon");
+  const iconImage = document.getElementById("icon");
+  iconImage.style.display = "block";
   const temperature = document.getElementById("temperature");
   const feelsLike = document.getElementById("feelsLike");
   const chanceOfRain = document.getElementById("chanceOfRain");
 
   city.textContent = data.address;
-  sunrise.textContent = data.sunrise;
-  sunset.textContent = data.sunset;
+  sunrise.textContent = `Sunrise: ${data.sunrise}`;
+  sunset.textContent = `Sunset: ${data.sunset}`;
+  today.textContent = "Today";
   description.textContent = data.description;
-  icon.textContent = data.weatherNow;
-  temperature.textContent = data.temperature + " °F";
-  feelsLike.textContent = data.feltTemperature + " °F";
-  chanceOfRain.textContent = data.chanceOfRain + "%";
+  iconImage.src = `/assets/weatherIcons/${data.weatherNow}.svg`;
+  iconImage.alt = `${data.weatherNow}`;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (button.classList.contains("active")) {
+        temperature.textContent = `Temperature: ${convertTemperature(
+          data.temperature
+        )}`;
+        feelsLike.textContent = `Feels Like: ${convertTemperature(
+          data.feltTemperature
+        )}`;
+      }
+    });
+  });
+  temperature.textContent = `Temperature: ${convertTemperature(
+    data.temperature
+  )}`;
+  feelsLike.textContent = `Feels Like: ${convertTemperature(
+    data.feltTemperature
+  )}`;
+  chanceOfRain.textContent = `Chance of rain: ${data.chanceOfRain}` + "%";
+}
+
+function convertTemperature(number) {
+  const celsiusActive = document.querySelector(".celsius.active");
+  const fahrenheitActive = document.querySelector(".fahrenheit.active");
+  if (celsiusActive) {
+    return (((number - 32) * 5) / 9).toFixed(1) + "°C";
+  } else if (fahrenheitActive) {
+    return (number * (9 / 5) + 32).toFixed(1) + "°F";
+  }
 }
 
 export { displayInfo };

@@ -11,4 +11,19 @@ function getInput() {
   });
 }
 
+function switchScale() {
+  const scales = document.querySelectorAll(".scale");
+  const celsius = document.querySelector(".celsius.scale");
+  celsius.classList.add("active");
+  scales.forEach((button) => {
+    button.addEventListener("click", () => {
+      scales.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      button.classList.add("active");
+    });
+  });
+}
+
 export { getInput };
+export { switchScale };

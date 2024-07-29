@@ -18,6 +18,10 @@
           <img src="<%=require('/assets/magnify.svg')%>" alt="search" />
         </button>
       </form>
+      <div class="scales">
+        <button class="scale celsius">°C</button>
+        <button class="scale fahrenheit">°F</button>
+      </div>
     </div>
     <div class="card">
       <div class="left">
@@ -25,10 +29,10 @@
         <p id="sunrise"></p>
         <p id="sunset"></p>
       </div>
-      <p>Today</p>
       <div class="right">
+        <p id="today"></p>
         <p id="description"></p>
-        <p id="icon"></p>
+        <img src="" alt="" id="icon" style="display: none;"/>
         <p id="temperature"></p>
         <p id="feelsLike"></p>
         <p id="chanceOfRain"></p>
