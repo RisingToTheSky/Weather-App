@@ -4,9 +4,6 @@ async function displayInfo(location) {
   const data = await getWeatherData(location);
   const buttons = document.querySelectorAll("button");
   const city = document.getElementById("city");
-  const sunrise = document.getElementById("sunrise");
-  const sunset = document.getElementById("sunset");
-  const today = document.getElementById("today");
   const description = document.getElementById("description");
   const iconImage = document.getElementById("icon");
   iconImage.style.display = "block";
@@ -15,27 +12,20 @@ async function displayInfo(location) {
   const chanceOfRain = document.getElementById("chanceOfRain");
 
   city.textContent = data.address;
-  sunrise.textContent = `Sunrise: ${data.sunrise}`;
-  sunset.textContent = `Sunset: ${data.sunset}`;
-  today.textContent = "Today";
   description.textContent = data.description;
   iconImage.src = `/assets/weatherIcons/${data.weatherNow}.svg`;
   iconImage.alt = `${data.weatherNow}`;
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       if (button.classList.contains("active")) {
-        temperature.textContent = `Temperature: ${convertTemperature(
-          data.temperature
-        )}`;
+        temperature.textContent = `${convertTemperature(data.temperature)}`;
         feelsLike.textContent = `Feels Like: ${convertTemperature(
           data.feltTemperature
         )}`;
       }
     });
   });
-  temperature.textContent = `Temperature: ${convertTemperature(
-    data.temperature
-  )}`;
+  temperature.textContent = ` ${convertTemperature(data.temperature)}`;
   feelsLike.textContent = `Feels Like: ${convertTemperature(
     data.feltTemperature
   )}`;

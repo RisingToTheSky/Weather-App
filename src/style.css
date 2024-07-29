@@ -41,7 +41,8 @@ img {
   border: none;
 }
 
-.searchButton:hover, .scale:hover {
+.searchButton:hover,
+.scale:hover {
   cursor: pointer;
 }
 
@@ -64,8 +65,8 @@ img {
 }
 
 .card {
-    display: flex;
-    padding: 25px;
-    gap: 50px;
-    font-size: 2rem;
+  display: flex;
+  padding: 25px;
+  gap: 50px;
+  font-size: 2rem;
 }

@@ -25,9 +25,6 @@ function processWeatherData(data) {
   const temperature = data.currentConditions.temp;
   const feltTemperature = data.currentConditions.feelslike;
   const chanceOfRain = data.currentConditions.precipprob;
-  const sunrise = data.currentConditions.sunrise;
-  const sunset = data.currentConditions.sunset;
-  const daysForecast = data.days;
   return {
     address,
     conditions,
@@ -36,9 +33,6 @@ function processWeatherData(data) {
     temperature,
     feltTemperature,
     chanceOfRain,
-    sunrise,
-    sunset,
-    daysForecast,
   };
 }
 
